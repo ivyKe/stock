@@ -53,7 +53,41 @@ function renderFullPage(renderedContent, initialState, head={
 export default function render(req, res) {
     const history = createMemoryHistory();
     const store = configureStore({
-      reducer: {},
+      reducer: {
+        stockList:['NYSE:CHT','NYSE:HTC'],
+        stockInfo: [
+ 
+          { name: 'NYSE:CHT', price: 25.7, rise: -3 }
+ 
+        ],
+        stockHistory: [
+ 
+          { name: 'NYSE:CHT', history: [
+ 
+            { date: "2-Aug-12",  open: 29.33,  high: 29.42,  low: 29.27,  close: 29.38,  volume: 149347, },
+ 
+            { date: "1-Aug-12",  open: 29.65,  high: 29.65,  low: 29.37,  close: 29.45,  volume: 139646, },
+ 
+            { date: "31-Jul-12",  open: 29.99,  high: 30.04,  low: 29.56,  close: 29.67,  volume: 226076, },
+ 
+            { date: "30-Jul-12",  open: 29.47,  high: 29.49,  low: 29.33,  close: 29.42,  volume: 108998, },
+ 
+            { date: "27-Jul-12",  open: 29.28,  high: 29.56,  low: 29.22,  close: 29.52,  volume: 130014, },
+ 
+            { date: "26-Jul-12",  open: 29.53,  high: 29.54,  low: 29.34,  close: 29.38,  volume: 110202, },
+ 
+            { date: "25-Jul-12",  open: 29.69,  high: 29.79,  low: 29.45,  close: 29.48,  volume: 112644, },
+ 
+            { date: "24-Jul-12",  open: 29.41,  high: 29.68,  low: 29.34,  close: 29.68,  volume: 158676, },
+ 
+          ]}
+ 
+        ],
+ 
+        selectedStock: 'NYSE:CHT',
+ 
+      }
+ 
     }, history);
 
     const routes = createRoutes(store);
