@@ -61,6 +61,9 @@ export default function loadStockMiddleware(store){
             case actionTypes.SELECT_STOCK:
                 loadStockHistory(store.getState().reducer);
                 break;
+            case actionTypes.ADD_STOCK:
+                checkStockInfo(store.getState().reducer);
+                break;
         }
         
         return res;

@@ -17,7 +17,7 @@ class StockHistory extends React.Component {
     const {stockName,history} = this.props;
       
     return (
-        <div className='col-md-7'>
+        <div className='col-md-7 col-xs-12'>
             <h1>{stockName}</h1>
             {history.length ? (
                 <StockChart data={history} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import * as actions from '../actions';
 
 const mapStateToProps = (state, ownProps) => {
     const stockList = state.reducer.stockList.map(stockName => {
@@ -9,17 +10,49 @@ const mapStateToProps = (state, ownProps) => {
     return {...ownProps, stockList};
 }
 
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        addStock:(name) => {
+            dispatch(actions.addStock(name));
+        },
+        selectStock:(name) => {
+            dispatch(actions.selectStock(name));
+        },
+        removeStock:(name) => {
+            dispatch(actions.removeStock(name));
+        }
+    };
+}
+
 class StockList extends React.Component {
+    
+    constructor(props){
+        super(props);
+        this.state = {newStockName:''};
+        
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    handleChange(event){
+        this.setState({newStockName:event.target.value});
+    }
+    
+    handleSubmit(event){
+        this.props.addStock(this.state.newStockName);
+        event.preventDefault();
+        this.setState({newStockName:''});
+    }
 
   render() {
-    const { stockList } = this.props;
+    const { stockList, addStock, selectStock, removeStock} = this.props;
       
     return (
-      <div className='col-md-5'>
-        <form className="form-inline">
+      <div className='col-md-5 col-xs-12'>
+        <form className="form-inline" onSubmit = {this.handleSubmit}>
             <div className="form-group">
                 <label>股票代號：
-                <input type="text" className="form-control" placeholder="請輸入股票代號"/></label>
+                <input type="text" className="form-control" placeholder="請輸入股票代號" value = {this.state.newStockName} onChange={this.handleChange}/></label>
             </div>
             <button type="submit" className="btn btn-default">Add</button>
         </form>
@@ -43,12 +76,12 @@ class StockList extends React.Component {
                         
                         riseIName = "glyphicon "+riseIName;
                         return (
-                        <tr key={stock.name}>
+                        <tr key={stock.name} onClick = {() => selectStock(stock.name)}>
                             <td>{index+1}</td>
                             <td>{stock.name}</td>
                             <td className={priceCName}>{stock.price}</td>
                             <td className={riseCName}><span>{stock.rise}</span><span className={riseIName}></span></td>
-                            <td><span className="glyphicon glyphicon-trash"></span></td>
+                            <td><span className="glyphicon glyphicon-trash" onClick = {() => removeStock(stock.name)}></span></td>
                         </tr>
                     )})}
             </tbody>
@@ -60,5 +93,5 @@ class StockList extends React.Component {
 };
 
 export default connect(
-    mapStateToProps
+    mapStateToProps, mapDispatchToProps
 )(StockList);
