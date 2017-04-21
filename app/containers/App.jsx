@@ -19,7 +19,6 @@ export default class App extends Component {
   render() {
     return (
       <div className={cx('app')}>
-        <Navigation />
         {this.props.children}
       </div>
     );

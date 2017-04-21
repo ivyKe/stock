@@ -1,9 +1,7 @@
 import React from 'react';
 
-import classNames from 'classnames/bind';
-import styles from 'css/components/home';
-
-const cx = classNames.bind(styles);
+import StockList from './StockList';
+import StockHistory from './StockHistory';
 
 /*
  * Note: This is kept as a container-level component, 
@@ -14,9 +12,12 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className={cx('home')}>
-        <h1 className={cx('home__header')}>Welcome to react-webpack-node!</h1>
-      </div>
+        <div className="container-fluid">
+            <div className="row">
+                <StockList />
+                <StockHistory />
+            </div>
+        </div>
     );
   }
   
