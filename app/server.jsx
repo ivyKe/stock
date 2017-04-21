@@ -54,10 +54,10 @@ export default function render(req, res) {
     const history = createMemoryHistory();
     const store = configureStore({
       reducer: {
-        stockList:['NYSE:CHT','GOOG','YHOO','SBUX'],
+        stockList:['GOOG','YHOO','SBUX'],
         stockInfo: [],
         stockHistory: [],
-        selectedStock: 'NYSE:CHT',
+        selectedStock: 'GOOG',
       }
  
     }, history);

@@ -15,7 +15,7 @@ class StockList extends React.Component {
     const { stockList } = this.props;
       
     return (
-      <div className='col-md-4'>
+      <div className='col-md-5'>
         <form className="form-inline">
             <div className="form-group">
                 <label>股票代號：

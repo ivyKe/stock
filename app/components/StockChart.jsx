@@ -23,7 +23,7 @@ class AreaChartWithEdge extends React.Component {
 					seriesName="MSFT"
 					data={data}
 					xAccessor={d => d.date} xScaleProvider={discontinuousTimeScaleProvider}
-					xExtents={[new Date(2012, 0, 30), new Date(2012, 7, 2)]}>
+					xExtents={[new Date(2017, 0, 1), new Date(2017, 7, 2)]}>
 				<Chart id={1}
 						yExtents={d => [d.high, d.low]}>
 					<XAxis axisAt="bottom" orient="bottom"/>
