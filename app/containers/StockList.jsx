@@ -47,7 +47,7 @@ class StockList extends React.Component {
                             <td>{index+1}</td>
                             <td>{stock.name}</td>
                             <td className={priceCName}>{stock.price}</td>
-                            <td className={riseCName}><span>{stock.rise}</span><i className={riseIName}></i></td>
+                            <td className={riseCName}><span>{stock.rise}</span><span className={riseIName}></span></td>
                             <td><span className="glyphicon glyphicon-trash"></span></td>
                         </tr>
                     )})}
