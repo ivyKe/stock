@@ -11,8 +11,8 @@ import createLogger from 'redux-logger';
  *                          while using browserHistory for client-side
  *                          rendering.
  */
-export default function configureStore(initialState, history) {
-  const middleware = [thunk, promiseMiddleware];
+export default function configureStore(initialState, history, customMiddleware = []) {
+  const middleware = [...customMiddleware, thunk, promiseMiddleware];
   // Installs hooks that always keep react-router and redux
   // store in sync
   const reactRouterReduxMiddleware = routerMiddleware(history);

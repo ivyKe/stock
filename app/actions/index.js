@@ -1,6 +1,13 @@
 import * as actionTypes from '../constants/actionTypes';
 
 /**
+ ** 初始化
+ */
+export function initLoadStock(){
+    return {type:actionTypes.INIT_LOAD_STOCK};
+}
+
+/**
  ** 新增股票
  */
 export function addStock(name){

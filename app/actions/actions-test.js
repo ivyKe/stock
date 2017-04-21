@@ -3,11 +3,11 @@ import * as actionTypes from '../constants/actionTypes';
 import { expect } from 'chai';
 
 describe('Actions Test', () => {
-//  it('initStockInfo', () => {
-//    expect(actions.initStockInfo()).to.deep.equal({
-//      type: actionTypes.INIT_STOCK_INFO
-//    });
-//  });
+  it('initLoadStock', () => {
+    expect(actions.initLoadStock()).to.deep.equal({
+      type: actionTypes.INIT_LOAD_STOCK
+    });
+  });
 
   it('addStock', () => {
     expect(actions.addStock('stock:name')).to.deep.equal({

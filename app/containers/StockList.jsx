@@ -18,8 +18,8 @@ class StockList extends React.Component {
       <div className='col-md-4'>
         <form className="form-inline">
             <div className="form-group">
-                <label for="stockCode">股票代號：</label>
-                <input type="text" className="form-control" id="stockCode" placeholder="請輸入股票代號"/>
+                <label>股票代號：
+                <input type="text" className="form-control" placeholder="請輸入股票代號"/></label>
             </div>
             <button type="submit" className="btn btn-default">Add</button>
         </form>
